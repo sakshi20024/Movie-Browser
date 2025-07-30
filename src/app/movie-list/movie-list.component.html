@@ -1,0 +1,56 @@
+<!--search bar -->
+<div class="search-bar">
+  <input [(ngModel)]="searchTerm" (keyup)="getMovies()" placeholder="Search for movies..." />
+</div>
+
+<!-- Movie Grid -->
+<div class="movie-grid">
+  <div class="movie-card" *ngFor="let movie of movies" (click)="goToMovieDetails(movie.imdbID)">
+    <img [src]="movie.Poster !== 'N/A' ? movie.Poster : 'assets/placeholder.jpg'"alt="Movie Poster"/>
+    <h3>{{ movie.Title }}</h3>
+  </div>
+</div>
+
+<!-- Genre Filter -->
+<div class="filters">
+  <label for="genre-select">Filter by Genre: </label>
+  <select id="genre-select" [(ngModel)]="selectedGenre" (change)="filterByGenre()">
+    <option value="" disabled selected hidden>Select a genre..</option>
+    <option *ngFor="let genre of genres" [value]="genre">{{ genre }}</option>
+  </select>
+</div>
+
+<!-- Filtered Genre Movies -->
+<h2 *ngIf="filteredMovies.length > 0">🎞️ {{ selectedGenre }} Movies</h2>
+<div class="movie-grid">
+  <div class="movie-card" *ngFor="let movie of filteredMovies" (click)="goToMovieDetails(movie.imdbID)">
+    <img [src]="getPoster(movie.Poster)" alt="{{ movie.Title }}" />
+    <h3>{{ movie.Title }}</h3>
+  </div>
+</div>
+
+<!--Recent Movies-->
+<h2>🎬Recent Movies</h2>
+<div class="movie-grid">
+  <div class="movie-card" *ngFor="let movie of recentMovies">
+    <img [src]="getPoster(movie.Poster)" alt="{{ movie.Title }}" />
+    <h3>{{ movie.Title }}</h3>
+  </div>
+</div>
+
+<!--All-Time Favourite Movies-->
+<h2>⭐All-Time Favourite Movies</h2>
+<div class="movie-grid">
+  <div class="movie-card" *ngFor="let movie of topRankedMovies">
+    <img [src]="getPoster(movie.Poster)" alt="{{ movie.Title }}" />
+    <h3>{{ movie.Title }}</h3>
+  </div>
+</div>
+
+
+
+
+
+
+
+

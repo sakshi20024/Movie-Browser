@@ -1,0 +1,11 @@
+<div class="movie-detail" *ngIf="movie">
+  <img [src]="movie.Poster" alt="Movie Poster" />
+  <h1>Movie Title: {{ movie.Title }}</h1>
+  <p>Plot: {{ movie.Plot }}</p>
+  <p>Release Date: {{ movie.Released }}</p>
+  <p>Rating: {{ movie.imdbRating }}</p>
+</div>
+
+<div *ngIf="!movie">
+  <p>Loading movie details...</p>
+</div>

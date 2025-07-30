@@ -1,0 +1,62 @@
+.movie-detail {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.movie-detail img {
+  max-width: 300px;
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.movie-detail h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #222;
+}
+
+.movie-detail p {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+  color: #555;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+  .movie-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .movie-card img {
+    height: 220px;
+  }
+}
+
+@media (max-width: 480px) {
+  .movie-grid {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+
+  .movie-card img {
+    height: 200px;
+  }
+
+  .search-bar {
+    padding: 1rem;
+  }
+
+  .movie-detail {
+    padding: 1rem;
+  }
+
+  .movie-detail img {
+    max-width: 100%;
+  }
+}
